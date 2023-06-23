@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="PinacotecaProyectoFinal.Views.EliminarPinacotecasView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PinacotecaProyectoFinal.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="LemonChiffon">
+    <DockPanel>
+        <DockPanel.Resources>
+            <Style TargetType="TextBlock" x:Key="Titulo">
+                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="Foreground" Value="Chocolate"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="40"/>
+            </Style>
+        </DockPanel.Resources>
+        <TextBlock FontWeight="DemiBold" DockPanel.Dock="Top" Text="Eliminar Pinacoteca" Style="{StaticResource Titulo}"></TextBlock>
+
+        <StackPanel DockPanel.Dock="Bottom">
+            <TextBlock Text="¿Deseas eliminar la pinacoteca?" FontSize="25" FontWeight="Medium" 
+                       Foreground="Chocolate"/>
+            <TextBlock Text="{Binding Pinacoteca.Nombre}" FontSize="20" FontWeight="DemiBold" Foreground="White"/>
+            <WrapPanel>
+                <Button Content="Eliminar" Command="{Binding EliminarCommand}"
+                        FontSize ="20" Padding="20 10" Margin="25"
+                        Background="Green" Foreground="White"></Button>
+                <Button Content="Cancelar" Command="{Binding CancelarCommand}"
+                        FontSize ="20" Padding="20 10" Margin="25"
+                        Background="Red" Foreground="White"></Button>
+            </WrapPanel>
+        </StackPanel>
+    </DockPanel>
+</UserControl>

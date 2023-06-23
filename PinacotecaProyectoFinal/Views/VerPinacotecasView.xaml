@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="PinacotecaProyectoFinal.Views.VerPinacotecasView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PinacotecaProyectoFinal.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Foreground="LightBlue" Background="BlueViolet">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".9*"/>
+            <RowDefinition Height=".2*"/>
+        </Grid.RowDefinitions>
+        <DataGrid  SelectedItem="{Binding Pinacoteca}" 
+                  ItemsSource="{Binding ListaPinacotecas}" CanUserAddRows="False" CanUserDeleteRows="False"
+                      CanUserReorderColumns="False" CanUserResizeColumns="False"
+                      AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="25" Binding="{Binding Nombre}" Header="Nombre" Width=".25*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Binding="{Binding Ciudad}" Header="Ciudad" Width=".25*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Binding="{Binding Direccion}" Header="Direccion" Width=".25*"></DataGridTextColumn>
+                <DataGridTextColumn FontSize="25" Binding="{Binding MetrosCuadrados}" Header="Metros Cuadrados" Width=".25*"></DataGridTextColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <WrapPanel Height="100" Grid.Row="2">
+            <WrapPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#1AB188"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="Margin" Value="7 7 7 7"/>
+                    <Setter Property="Padding" Value="20 5"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Style>
+            </WrapPanel.Resources>
+            <Button Content="Agregar" Command="{Binding CambiarVistaCommand}" CommandParameter="Agregar"></Button>
+            <Button Content="Editar" Command="{Binding CambiarVistaCommand}" CommandParameter="Editar"></Button>
+            <Button Content="Eliminar" Command="{Binding CambiarVistaCommand}" CommandParameter="Eliminar"></Button>
+        </WrapPanel>
+    </Grid>
+</UserControl>
